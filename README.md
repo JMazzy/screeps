@@ -1,2 +1,2 @@
 # screeps
-These are some of the scripts that I use in the game screeps.
+These are the scripts that I use in the game screeps.
