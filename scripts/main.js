@@ -3,7 +3,7 @@ var spawnManager = require( 'spawnManager' );
 var performRoles = require( 'performRoles' );
 var chooseCreepType = require( 'chooseCreepType' );
 
-//have creeps perform roles
+//have all creeps perform roles
 performRoles();
 
 //iterate through all spawns
