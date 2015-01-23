@@ -3,6 +3,7 @@
  */
  
  module.exports = function(spawn) {
+    //variables to count the number of each variable
     var numHarvesters = 0;
     var numHaulers = 0;
     var numBuilders = 0;
