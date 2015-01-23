@@ -12,23 +12,17 @@ module.exports = function() {
         if ( creep.memory.role == 'harvester' ) {
             harvester( creep );
         }
-        if ( creep.memory.role == 'hauler' ) {
+        else if ( creep.memory.role == 'hauler' ) {
             hauler( creep );
         }
-        if ( creep.memory.role == 'builder' ) {
-            builder(creep);
-        }
-        if ( creep.memory.role == 'guard' ) {
+        else if ( creep.memory.role == 'guard' ) {
             guard( creep );
         }
-        if ( creep.memory.role == 'medic' ) {
+        else if ( creep.memory.role == 'medic' ) {
             medic( creep );
         }
-        if ( creep.memory.role == 'ranger' ) {
-            ranger( creep );
-        }
-        if ( creep.memory.role == 'scavenger' ) {
-            scavenger(creep);
+        else if ( creep.memory.role == 'builder' ) {
+            builder(creep);
         }
     }
 };

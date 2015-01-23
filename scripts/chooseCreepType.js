@@ -18,20 +18,19 @@
             if ( creep.memory.role == 'harvester' ) {
                 numHarvesters++;
             }
-            if ( creep.memory.role == 'hauler' ) {
+            else if ( creep.memory.role == 'hauler' ) {
                 numHaulers++;
             }
-            if ( creep.memory.role == 'builder' ) {
+            else if ( creep.memory.role == 'builder' ) {
                 numBuilders++;
             }
-            if ( creep.memory.role == 'guard' ) {
+            else if ( creep.memory.role == 'guard' ) {
                 numGuards++;
             }
-            if ( creep.memory.role == 'medic' ) {
+            else if ( creep.memory.role == 'medic' ) {
                 numMedics++;
             }
         }
-        
     }
     
     //the result to return; null if no creep needs to spawn
@@ -41,14 +40,14 @@
     if ( numHaulers < numHarvesters ) {
         result = 'hauler';
     }
-    else if ( numHarvesters < 3 ) {
-        result = 'harvester';
+    else if ( numGuards < numHarvesters ) {
+        result = 'guard';
     }
     else if ( numMedics < numGuards / 3 ) {
         result = 'medic';
     }
     else {
-        result = 'guard'; //make more guards if all other parts are satisfied
+        result = 'harvester';
     }
     
     //return the result of this selection

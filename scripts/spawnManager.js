@@ -17,28 +17,26 @@ module.exports = function( spawn, creepType ) {
         body = [ Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE ];
     }
     else if ( creepType == 'builder' ) {
-        body = [ Game.WORK, Game.CARRY, Game.WORK, Game.MOVE ];
+        body = [ Game.WORK, Game.WORK, Game.CARRY, Game.MOVE ];
     }
     else if ( creepType == 'guard' ) {
         body = [ Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, 
             Game.MOVE,
-            Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK,
-            Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH ];
+            Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK ];
     }
     else if ( creepType == 'medic' ) {
-        body = [ Game.TOUGH, Game.TOUGH,Game.TOUGH, Game.TOUGH,
+        body = [ Game.TOUGH, Game.TOUGH,Game.TOUGH, Game.TOUGH, Game.TOUGH, 
             Game.MOVE,
-            Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL,
-            Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH ];
+            Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL ];
     }
     
-     var creepNumber = 0;
-     var creepName = creepType.concat(creepNumber);
+    var creepNumber = 0;
+    var creepName = creepType.concat(creepNumber);
      
-     while( Game.creeps[creepName] ) {
-         creepNumber++;
-         creepName = creepType.concat(creepNumber);
-     }
+    while( Game.creeps[creepName] ) {
+        creepNumber++;
+        creepName = creepType.concat(creepNumber);
+    }
     
     var spawnId = spawn.id;
     var sourceId = spawn.pos.findClosest( Game.SOURCES ).id;

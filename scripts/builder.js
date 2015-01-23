@@ -1,5 +1,3 @@
-require('lodash');
-
 module.exports = function(creep) {
     var home = creep.pos.findClosest( Game.MY_SPAWNS );
     var source = creep.pos.findClosest( Game.SOURCES );
