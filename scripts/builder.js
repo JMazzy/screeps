@@ -1,35 +1,56 @@
 module.exports = function(creep) {
-    var home = creep.pos.findClosest( Game.MY_SPAWNS ); //the place the creep should return when not working
+    //the place the creep should return when not working
+    var home = creep.pos.findClosest( Game.MY_SPAWNS ); 
     
-    var source = creep.pos.findClosest( Game.SOURCES ); //the source the creep should use if needed
+    //the source the creep should use if needed
+    var source = creep.pos.findClosest( Game.SOURCES ); 
     
-    if ( creep.energy > 0 ) {			//make sure creep has energy to build with
-		var toBuild = creep.pos.findClosest( Game.CONSTRUCTION_SITES ); //the construction site to build
-		var toFix = creep.pos.findClosest( Game.MY_STRUCTURES, { //the structure to fix
+    //make sure creep has energy to build with
+    if ( creep.energy > 0 ) {			
+		
+		//the construction site to build
+		var toBuild = creep.pos.findClosest( Game.CONSTRUCTION_SITES ); 
+		
+		//the structure to fix
+		var toFix = creep.pos.findClosest( Game.MY_STRUCTURES, { 
+			//filter for structures which have damage
 			filter: function(object) {
-				object.hits < object.hitsMax; //filtered for structures which have damage
+				object.hits < object.hitsMax; 
 			}
 		} );
 		
-        if ( toBuild ) { 				//if there is something to build
-            if ( !creep.pos.isNearTo(toBuild) ) {//if the creep is not already near the build site
-                creep.moveTo(toBuild);  //move to the build site 
-            }
-            creep.build(toBuild);		//build the structure specified
-        }
-        else if ( toFix ) { 			//if there isn't anything to build, check if there is something to fix
+		//if there is something to build
+        if ( toBuild ) { 	
 			
-            if ( !creep.pos.isNearTo(toBuild) ) {//if the creep is not already near the build site
+			//if the creep is not already near the build site			
+            if ( !creep.pos.isNearTo(toBuild) ) {
 				
-                creep.moveTo(toFix);	//move to the object that needs repair       
+				//move to the build site 
+                creep.moveTo(toBuild);  
             }
             
-					
-            creep.repair(toFix);		//repair the specified structure
+            //build the structure specified
+            creep.build(toBuild);		
+        }
+        //if there isn't anything to build, check if there is something to fix
+        else if ( toFix ) { 			
+			
+			//if the creep is not already near the build site
+            if ( !creep.pos.isNearTo(toBuild) ) {
+				
+				//move to the object that needs repair       
+                creep.moveTo(toFix);	
+            }
+            
+			//repair the specified structure		
+            creep.repair(toFix);		
         }
     }
-    else {								//otherwise
-        creep.moveTo(home);				//move to the home spawn
-        home.transferEnergy(creep);		//grab some more energy
+    //otherwise
+    else {		
+		//move to the home spawn						
+        creep.moveTo(home);		
+        //grab some more energy		
+        home.transferEnergy(creep);		
     }
 };
