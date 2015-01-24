@@ -18,12 +18,12 @@ module.exports = function(creep) {
         creep.moveTo(hurtCreep);
         
         //if adjacent to the hurt creep
-        if ( creep.isNearTo( hurtCreep ) {
+        if ( creep.inRangeTo( hurtCreep, 1 ) {
 			//heal the hurt creep
-			creep.heal(hurtCreep)
+			creep.heal(hurtCreep);
 		}
 		//else if in healing range to the hurt creep
-		else if ( creep.inRangeTo( hurtCreep, 3 ) {
+		else if ( creep.inRangeTo( hurtCreep, 3 ) ) {
 			//heal the hurt creep from a distance
 			creep.rangedHeal(hurtCreep);
 		}
