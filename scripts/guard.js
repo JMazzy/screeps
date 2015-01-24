@@ -1,17 +1,13 @@
 module.exports = function(creep) {
-    var gatherPoint;
-    if ( 1 ) {
-        var myFlagName = 'Flag' + ( creep.memory.number );
-        gatherPoint = Game.flags[myFlagName];
-    } else {
-        gatherPoint = Game.spawns.Spawn1;
-    }
+    var myFlagName = 'g' + creep.memory.number;
+    var myFlag = Game.flags[myFlagName];
     
     var target = creep.pos.findClosest( Game.HOSTILE_CREEPS );
     
-    creep.moveTo(gatherPoint);
-    
-    if (target) {
+    if ( target && creep.pos.inRangeTo( target, 3 )) {
         creep.rangedAttack(target);
     }
+    else if ( myFlag && !creep.pos.inRangeTo( myFlag, 0 ) {
+		creep.moveTo( myFlag );
+	}
 };

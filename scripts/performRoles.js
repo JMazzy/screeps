@@ -3,8 +3,6 @@ var hauler = require( 'hauler' );
 var builder = require( 'builder' );
 var guard = require( 'guard' );
 var medic = require( 'medic' );
-var scavenger = require('scavenger');
-var ranger = require('ranger');
 
 module.exports = function() {
     for ( var c in Game.creeps ) {
