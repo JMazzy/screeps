@@ -18,7 +18,7 @@ module.exports = function(creep) {
         creep.moveTo(hurtCreep);
         
         //if adjacent to the hurt creep
-        if ( creep.inRangeTo( hurtCreep, 1 ) {
+        if ( creep.inRangeTo( hurtCreep, 1 ) ) {
 			//heal the hurt creep
 			creep.heal(hurtCreep);
 		}
