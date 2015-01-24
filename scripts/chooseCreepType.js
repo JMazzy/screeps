@@ -38,7 +38,10 @@
     var result = null;
     
     //choose which type of creep is needed
-    if ( numHaulers < numHarvesters ) {
+    if ( numHarvesters < 3 ) {
+		result = 'harvester'
+	}
+    else if ( numHaulers < numHarvesters ) {
         result = 'hauler';
     }
     else if ( numGuards < numHarvesters ) {
@@ -47,9 +50,12 @@
     else if ( numMedics < numGuards / 3 ) {
         result = 'medic';
     }
-    else {
+    else if (numHarvesters < 5 ) {
         result = 'harvester';
     }
+    else {
+		result = 'guard';
+	}
     
     //return the result of this selection
     return result;
