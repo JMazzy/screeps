@@ -39,7 +39,6 @@ module.exports = function( spawn, creepType ) {
     }
     
     var spawnId = spawn.id;
-    var sourceId = spawn.pos.findClosest( Game.SOURCES ).id;
     
-    spawn.createCreep( body, creepName, { role: creepType, homeSpawn: spawnId, homeSource: sourceId, number: creepNumber } );
+    spawn.createCreep( body, creepName, { role: creepType, homeSpawn: spawnId, number: creepNumber } );
  };
