@@ -20,7 +20,7 @@ module.exports = function(creep) {
 		} );
 		
 		//if there is something to build
-        if ( toBuild ) { 	
+		if ( toBuild ) { 	
 			
 			//if the creep is not already near the build site			
             if ( !creep.pos.isNearTo(toBuild) ) {
