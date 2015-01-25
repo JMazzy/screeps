@@ -7,7 +7,10 @@ module.exports = function(creep) {
     var target = creep.pos.findClosest( Game.HOSTILE_CREEPS );
     
     //check if the target exists and is in range
-    if ( target && creep.pos.inRangeTo( target, 3 ) ) {
+    if ( target && ( creep.pos.inRangeTo( target, 3 ) 
+        || creep.pos.inRangeTo( target, 2 ) 
+        || creep.pos.inRangeTo( target, 1 ) ) ) {
+        
         //attack the target
         creep.rangedAttack(target);
     }
