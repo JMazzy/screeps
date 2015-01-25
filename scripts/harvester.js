@@ -4,9 +4,13 @@
      var myHaulerName = 'hauler' + creep.memory.number;
      var myHauler = Game.creeps[myHaulerName];
      
-     var mySource = Game.getObjectById( creep.memory.homeSource );
+     var mySource = home.pos.findClosest( Game.SOURCES, {
+        filter: function(object) {
+            object.energy > 0;
+        }
+     } );
      
-     if ( creep.energy < creep.energyCapacity ) {
+     if ( mySource && creep.energy < creep.energyCapacity ) {
         creep.moveTo( mySource );
         creep.harvest( mySource );
      }
